@@ -12,6 +12,9 @@ def main(
     arrow_width: Annotated[int, typer.Option(help="width of arrow as fraction of img width")] = 5,
     arrow_height: Annotated[int, typer.Option(help="height of arrow as fraction of img height")] = 3,
 ):
+    """
+    Generate a discord imagequote from a given image.
+    """
     if not filepath.exists:
         raise typer.Exit(1)
 
@@ -42,7 +45,7 @@ def main(
             fill=(255, 255, 255, 0),
         )
 
-        base.show()
+        base.save(filepath)
 
 
 if __name__ == "__main__":
